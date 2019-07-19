@@ -155,3 +155,9 @@ variable "variables" {
   description = "A map that defines environment variables for the Lambda function."
   default     = {}
 }
+
+variable "has_variables" {
+  type        = "string"
+  description = "true or false"
+  default     = "true"
+}
