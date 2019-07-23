@@ -17,10 +17,10 @@ This Lambda module needs:
 ####################################################################################
 #######Lambda function with environment variables disabled and without Layers#######
 
-module "lambda-function-MFACustomMessage" {
+module "lambda-function-1" {
   source             = "./modules/tf-aws-lambda-function"
   function_name      = "${var.function_name}"
-  role               = "arn:aws:iam::724568583458:role/AppSyncDynamoReader"
+  role               = "${var.role}"
   memory_size        = "${var.memory_size}"
   handler            = "${var.handler}"
   description        = "${var.description}"
@@ -38,10 +38,10 @@ module "lambda-function-MFACustomMessage" {
 ##################################################################################
 #######Lambdas functions with environment variables enabled and with Layers#######
 
-module "lambda-function-uploadImageLocation" {
+module "lambda-function-2" {
   source             = "./modules/tf-aws-lambda-function"
   function_name      = "${var.function_name}"
-  role               = "arn:aws:iam::724568583458:role/LambdaS3FullAccess"
+  role               = "${var.role}"
   memory_size        = "${var.memory_size}"
   handler            = "${var.handler}"
   source_code_hash   = "${var.source_code_hash}"
