@@ -159,5 +159,5 @@ variable "variables" {
 variable "has_variables" {
   type        = "string"
   description = "true or false"
-  default     = "true"
+  default     = "false"
 }

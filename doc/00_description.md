@@ -1,4 +1,4 @@
-#tf-aws-lambda-functions-mod
+# tf-aws-lambda-functions-mod
 
 Terraform module that creates Lambda Functions resources in AWS
 

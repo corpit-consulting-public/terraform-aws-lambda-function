@@ -1,5 +1,5 @@
 
-#tf-aws-lambda-functions-mod
+# tf-aws-lambda-functions-mod
 
 Terraform module that creates Lambda Functions resources in AWS
 
@@ -79,7 +79,7 @@ If you want to update README.md file, run that script while being in 'hooks' fol
 | filename | The path to the function's deployment package within the local filesystem. if defined, the s3_-prefix options cannot be used | string | `""` | no |
 | function\_name | A unique name for your Lambda Function. | string | n/a | yes |
 | handler | The function entrypoint in your code. | string | n/a | yes |
-| has\_variables | true or false | string | `"true"` | no |
+| has\_variables | true or false | string | `"false"` | no |
 | kms\_key\_arn | The ARN for the KMS encryption key. | string | `""` | no |
 | layers | List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. | list | `<list>` | no |
 | memory\_size | Amount of memory in MB your Lambda Function can use at runtime. Defaults to 128. | string | `"128"` | no |
