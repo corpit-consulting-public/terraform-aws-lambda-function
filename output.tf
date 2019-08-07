@@ -4,7 +4,7 @@ output "arn" {
 }
 
 output "id" {
-  description = "The Amazon Resource Name (ARN) identifying your Lambda Function."
+  description = "The Amazon Resource Name (ID) identifying your Lambda Function."
   value = "${element(coalescelist(aws_lambda_function.test_lambda_1.*.id, aws_lambda_function.test_lambda_2.*.id),0)}"
 }
 
@@ -14,6 +14,6 @@ output "version" {
 }
 
 output "function_name" {
-  description = "The Amazon Resource Name (ARN) identifying your Lambda Function."
+  description = "The Amazon Resource Name (function name) identifying your Lambda Function."
   value = "${element(coalescelist(aws_lambda_function.test_lambda_1.*.function_name, aws_lambda_function.test_lambda_2.*.function_name),0)}"
 }
