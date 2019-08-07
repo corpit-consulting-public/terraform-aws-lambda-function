@@ -101,3 +101,12 @@ If you want to update README.md file, run that script while being in 'hooks' fol
 | variables | A map that defines environment variables for the Lambda function. | map | `<map>` | no |
 | vpc\_config | Provide this to allow your function to access your VPC. Fields documented below. | list | `<list>` | no |
 
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| arn | The Amazon Resource Name (ARN) identifying your Lambda Function. |
+| function\_name | The Amazon Resource Name (ARN) identifying your Lambda Function. |
+| id | The Amazon Resource Name (ARN) identifying your Lambda Function. |
+| version | Latest published version of your Lambda Function. |
+
