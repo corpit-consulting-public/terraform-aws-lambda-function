@@ -85,9 +85,9 @@ variable "publish" {
 }
 
 variable "vpc_config" {
-  type        = "list"
+  type        = "map"
   description = "Provide this to allow your function to access your VPC. Fields documented below."
-  default     = []
+  default     = {}
 }
 
 variable "environment" {

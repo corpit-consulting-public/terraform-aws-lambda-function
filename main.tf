@@ -1,7 +1,7 @@
 resource "aws_lambda_function" "test_lambda_1" {
   count             = "${var.has_variables ? 1 : 0}"
   function_name     = "${var.function_name}"
-  layers            = "${var.layers}"
+  layers            = ["${var.layers}"]
   role              = "${var.role}"
   handler           = "${var.handler}"
   memory_size       = "${var.memory_size}"
@@ -20,7 +20,10 @@ resource "aws_lambda_function" "test_lambda_1" {
   environment        {
     variables = "${var.variables}"
   }
-  vpc_config         = "${var.vpc_config}"
+  vpc_config         {
+    subnet_ids         = ["${var.subnet_ids}"]
+    security_group_ids = ["${var.security_group_ids}"]
+  }
   tracing_config     {
     mode = "${var.mode}"
   }
@@ -47,7 +50,10 @@ resource "aws_lambda_function" "test_lambda_2" {
  
   source_code_hash   = "${var.source_code_hash}"
   runtime            = "${var.runtime}"
-  vpc_config         = "${var.vpc_config}"
+  vpc_config         {
+    subnet_ids         = ["${var.subnet_ids}"]
+    security_group_ids = ["${var.security_group_ids}"]
+  }
   tracing_config     {
     mode = "${var.mode}"
   }
