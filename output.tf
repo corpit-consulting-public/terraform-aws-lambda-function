@@ -17,3 +17,7 @@ output "function_name" {
   description = "The Amazon Resource Name (function name) identifying your Lambda Function."
   value = "${element(coalescelist(aws_lambda_function.test_lambda_1.*.function_name, aws_lambda_function.test_lambda_2.*.function_name),0)}"
 }
+
+output "s3_object_version" {
+  value = "${element(coalescelist(aws_lambda_function.test_lambda_1.*.s3_object_version, aws_lambda_function.test_lambda_2.*.s3_object_version),0)}"
+}

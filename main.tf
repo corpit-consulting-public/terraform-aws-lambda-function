@@ -27,7 +27,10 @@ resource "aws_lambda_function" "test_lambda_1" {
   tracing_config     {
     mode = "${var.mode}"
   }
-  dead_letter_config = "${var.dead_letter_config}" 
+  dead_letter_config = "${var.dead_letter_config}"
+  lifecycle {
+    ignore_changes     = ["last_modified"]
+  }
 }
 
 
@@ -58,4 +61,8 @@ resource "aws_lambda_function" "test_lambda_2" {
     mode = "${var.mode}"
   }
   dead_letter_config = "${var.dead_letter_config}" 
+
+  lifecycle {
+    ignore_changes     = ["last_modified"]
+  }
 }
