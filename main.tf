@@ -62,6 +62,8 @@ resource "aws_lambda_function" "test_lambda_2" {
   }
   dead_letter_config = "${var.dead_letter_config}" 
 
+### The lifecycle block was used because we use environment variables for s3_object_version // it is not mandatory to use this block, simply define the s3_object_version variable if you do not want to use lifecycle
+
   lifecycle {
     ignore_changes     = ["last_modified"]
   }
