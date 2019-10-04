@@ -37,7 +37,7 @@ resource "aws_lambda_function" "test_lambda_1" {
 resource "aws_lambda_function" "test_lambda_2" {
   count             = "${var.has_variables ? 0 : 1}"
   function_name     = "${var.function_name}"
-  layers            = "${var.layers}"
+  layers            = ["${var.layers}"]
   role              = "${var.role}"
   handler           = "${var.handler}"
   memory_size       = "${var.memory_size}"
