@@ -99,14 +99,15 @@ If you want to update README.md file, run that script while being in 'hooks' fol
 | timeout | The amount of time your Lambda Function has to run in seconds. Defaults to 3 | string | `"300"` | no |
 | tracing\_config |  | map | `<map>` | no |
 | variables | A map that defines environment variables for the Lambda function. | map | `<map>` | no |
-| vpc\_config | Provide this to allow your function to access your VPC. Fields documented below. | list | `<list>` | no |
+| vpc\_config | Provide this to allow your function to access your VPC. Fields documented below. | map | `<map>` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | arn | The Amazon Resource Name (ARN) identifying your Lambda Function. |
-| function\_name | The Amazon Resource Name (ARN) identifying your Lambda Function. |
-| id | The Amazon Resource Name (ARN) identifying your Lambda Function. |
+| function\_name | The Amazon Resource Name (function name) identifying your Lambda Function. |
+| id | The Amazon Resource Name (ID) identifying your Lambda Function. |
+| s3\_object\_version |  |
 | version | Latest published version of your Lambda Function. |
 
