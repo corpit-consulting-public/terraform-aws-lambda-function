@@ -13,7 +13,7 @@ This Lambda module needs:
  
 ## Terraform versions
 
-Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `teraform012` branch.
+Terraform 0.12. Pin module version to `~> v2.0`. Submit pull-requests to `teraform12` branch.
 
 Terraform 0.11. Pin module version to `~> v1.0`. Submit pull-requests to `terraform11` branch.
 
