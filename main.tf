@@ -10,6 +10,7 @@ resource "aws_lambda_function" "test_lambda_1" {
   s3_bucket         = "${var.s3_bucket}"
   s3_key            = "${var.s3_key}"
   s3_object_version = "${var.s3_object_version}"
+  reserved_concurrent_executions= "${var.reserved_concurrent_executions}"
 
     # The filebase64sha256() function is available in Terraform 0.11.12 and later
     # For Terraform 0.11.11 and earlier, use the base64sha256() function and the file() function:
@@ -46,6 +47,7 @@ resource "aws_lambda_function" "test_lambda_2" {
   s3_bucket         = "${var.s3_bucket}"
   s3_key            = "${var.s3_key}"
   s3_object_version = "${var.s3_object_version}"
+  reserved_concurrent_executions = "${var.reserved_concurrent_executions}"
 
     # The filebase64sha256() function is available in Terraform 0.11.12 and later
     # For Terraform 0.11.11 and earlier, use the base64sha256() function and the file() function:
