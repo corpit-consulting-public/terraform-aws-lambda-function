@@ -1,54 +1,24 @@
 output "arn" {
   description = "The Amazon Resource Name (ARN) identifying your Lambda Function."
-  value = element(
-    coalescelist(
-      aws_lambda_function.test_lambda_1.*.arn,
-      aws_lambda_function.test_lambda_2.*.arn,
-    ),
-    0,
-  )
+  value = aws_lambda_function.lambda_function.arn
 }
 
 output "id" {
   description = "The Amazon Resource Name (ID) identifying your Lambda Function."
-  value = element(
-    coalescelist(
-      aws_lambda_function.test_lambda_1.*.id,
-      aws_lambda_function.test_lambda_2.*.id,
-    ),
-    0,
-  )
+  value = aws_lambda_function.lambda_function.id
 }
 
 output "version" {
   description = "Latest published version of your Lambda Function."
-  value = element(
-    coalescelist(
-      aws_lambda_function.test_lambda_1.*.version,
-      aws_lambda_function.test_lambda_2.*.version,
-    ),
-    0,
-  )
+  value = aws_lambda_function.lambda_function.version
 }
 
 output "function_name" {
   description = "The Amazon Resource Name (function name) identifying your Lambda Function."
-  value = element(
-    coalescelist(
-      aws_lambda_function.test_lambda_1.*.function_name,
-      aws_lambda_function.test_lambda_2.*.function_name,
-    ),
-    0,
-  )
+  value = aws_lambda_function.lambda_function.function_name
 }
 
 output "s3_object_version" {
-  value = element(
-    coalescelist(
-      aws_lambda_function.test_lambda_1.*.s3_object_version,
-      aws_lambda_function.test_lambda_2.*.s3_object_version,
-    ),
-    0,
-  )
+  value = aws_lambda_function.lambda_function.s3_object_version
 }
 
