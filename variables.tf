@@ -96,6 +96,11 @@ variable "environment" {
   default     = {}
 }
 
+variable "environment_vars" {
+  type    = map(string)
+  default = null
+}
+
 variable "kms_key_arn" {
   type        = string
   description = "The ARN for the KMS encryption key."
