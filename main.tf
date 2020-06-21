@@ -19,12 +19,12 @@ resource "aws_lambda_function" "lambda_function" {
   runtime          = var.runtime
 
 ### Env Lambas
-   dynamic "environment" {
-    for_each = local.environment_map
-    content {
-      variables = environment.value
+  dynamic "environment" {
+      for_each = var.environment == null ? [] : [var.environment]
+      content {
+        variables = environment.value.variables
+      }
     }
-  }
 
 ####vpc Config
 

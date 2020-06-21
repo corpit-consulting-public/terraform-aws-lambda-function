@@ -91,10 +91,17 @@ variable "vpc_config" {
 }
 
 variable "environment" {
-  type        = map(string)
-  description = "The Lambda environment's configuration settings. Fields documented below"
-  default     = {}
+  type = object({
+    variables = map(string)
+  })
+  default = null
 }
+
+#variable "environment" {
+#  type        = map(string)
+#  description = "The Lambda environment's configuration settings. Fields documented below"
+#  default     = {}
+#}
 
 variable "environment_vars" {
   type    = map(string)
