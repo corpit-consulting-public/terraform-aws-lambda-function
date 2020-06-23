@@ -97,17 +97,6 @@ variable "environment" {
   default = null
 }
 
-#variable "environment" {
-#  type        = map(string)
-#  description = "The Lambda environment's configuration settings. Fields documented below"
-#  default     = {}
-#}
-
-variable "environment_vars" {
-  type    = map(string)
-  default = null
-}
-
 variable "kms_key_arn" {
   type        = string
   description = "The ARN for the KMS encryption key."
@@ -166,11 +155,5 @@ variable "variables" {
   type        = map(string)
   description = "A map that defines environment variables for the Lambda function."
   default     = {}
-}
-
-variable "has_variables" {
-  type        = string
-  description = "true or false"
-  default     = "false"
 }
 
