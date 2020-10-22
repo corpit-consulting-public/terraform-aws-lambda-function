@@ -56,3 +56,44 @@ module "lambda-function" {
 ## README.md
 This README file was created runnnign generate-readme.sh placed insinde hooks directory.
 If you want to update README.md file, run that script while being in 'hooks' folder.
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| function\_name | A unique name for your Lambda Function. | string | n/a | yes |
+| handler | The function entrypoint in your code. | string | n/a | yes |
+| mode | Can be either PassThrough or Active. If PassThrough, Lambda will only trace the request from an upstream service if it contains a tracing header with sampled=1. If Active, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision. | string | n/a | yes |
+| role | IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. See Lambda Permission Model for more details. | string | n/a | yes |
+| runtime |  | string | n/a | yes |
+| dead\_letter\_config | Nested block to configure the function's dead letter queue. See details below. | list(string) | `<list>` | no |
+| description | Description of what your Lambda Function does. | string | `""` | no |
+| environment |  | object | `"null"` | no |
+| filename | The path to the function's deployment package within the local filesystem. if defined, the s3\_-prefix options cannot be used | string | `""` | no |
+| kms\_key\_arn | The ARN for the KMS encryption key. | string | `""` | no |
+| layers | List of Lambda Layer Version ARNs \(maximum of 5\) to attach to your Lambda Function. | list(string) | `<list>` | no |
+| memory\_size | Amount of memory in MB your Lambda Function can use at runtime. Defaults to 128. | string | `"128"` | no |
+| publish | Whether to publish creation/change as new Lambda Function Version. Defaults to false. | string | `"false"` | no |
+| reserved\_concurrent\_executions | The amount of reserved concurrent executions for this lambda function. A value of 0 disables lambda from being triggered and -1 removes any concurrency limitations. Defaults to Unreserved Concurrency Limits -1. | string | `"-1"` | no |
+| s3\_bucket | The S3 bucket location containing the function's deployment package. Conflicts with filename. This bucket must reside in the same AWS region where you are creating the Lambda function. | string | `""` | no |
+| s3\_key | The S3 key of an object containing the function's deployment package. Conflicts with filename. | string | `""` | no |
+| s3\_object\_version | The object version containing the function's deployment package. Conflicts with filename. | string | `""` | no |
+| security\_group\_ids | A list of security group IDs associated with the Lambda function. | list(string) | `<list>` | no |
+| source\_code\_hash | Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either filename or s3\_key. The usual way to set this is filebase64sha256\(file.zip\) \(Terraform 0.11.12 and later\) or base64sha256\(file\(file.zip\)\) \(Terraform 0.11.11 and earlier\), where file.zip is the local filename of the lambda function source archive. | string | `""` | no |
+| subnet\_ids | A list of subnet IDs associated with the Lambda function. | list(string) | `<list>` | no |
+| tags | A mapping of tags to assign to the object | map(string) | `<map>` | no |
+| target\_arn | The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the sns:Publish or sqs:SendMessage action on this ARN, depending on which service is targeted. | string | `""` | no |
+| timeout | The amount of time your Lambda Function has to run in seconds. Defaults to 3 | string | `"300"` | no |
+| tracing\_config |  | map(string) | `<map>` | no |
+| variables | A map that defines environment variables for the Lambda function. | map(string) | `<map>` | no |
+| vpc\_config | Provide this to allow your function to access your VPC. Fields documented below. | map(string) | `<map>` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| arn | The Amazon Resource Name \(ARN\) identifying your Lambda Function. |
+| function\_name | The Amazon Resource Name \(function name\) identifying your Lambda Function. |
+| id | The Amazon Resource Name \(ID\) identifying your Lambda Function. |
+| s3\_object\_version |  |
+| version | Latest published version of your Lambda Function. |
+
