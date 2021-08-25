@@ -21,4 +21,7 @@ output "function_name" {
 output "s3_object_version" {
   value = aws_lambda_function.lambda_function.s3_object_version
 }
-
+output "invoke_arn" {
+  description = "ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's uri"
+  value = aws_lambda_function.lambda_function.invoke_arn
+}
